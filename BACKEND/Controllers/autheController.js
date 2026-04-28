@@ -26,7 +26,8 @@ const createUser = async (req, res) => {
 
         res.cookie('auth_token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
+            // secure: process.env.NODE_ENV === 'production',
+            secure: true,
             sameSite: 'none', // Prevents sending cookies to other websites (CSRF protection)
             maxAge: 24 * 60 * 60 * 1000 // Expires after one day
         })
@@ -76,7 +77,8 @@ const logInUser = async (req, res) => {
 
             res.cookie('auth_token', token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
+                // secure: process.env.NODE_ENV === 'production',
+                secure: true,
                 sameSite: 'none', // Prevents sending cookies to other websites (CSRF protection)
                 maxAge: 24 * 60 * 60 * 1000 // Expires after one day
             })
